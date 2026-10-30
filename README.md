@@ -1,4 +1,4 @@
-# Python Basic Data Analyzer
+# Python Basic Data Analyser
 
 ## Overview
 This is my first Python project for my portfolio to acquire a contract or full-time remote software engineering position. 
@@ -23,17 +23,28 @@ python practice.py
 - [X] Complete 15 short Python practice exercises.
 - [X] Read data from a CSV file.
 - [X] Calculate minimum, maximum, and average values.
+- [ ] Read timestamped data from CSV.
+- [ ] Calcuate the power for each voltage and current.
+- [ ] Calculate the average power.
+- [ ] Determine and display the highest and lower input readings.
+- [ ] Display a graph of the readings and power in three separate graphs.
+- [ ] Generate and display a report
+- [ ] Provide the option to save a report or open an existing report.
 - [ ] Add test suite.
 - [ ] Improve Documentation.
 
 ## Goals
 - Write basic functionality for initial practice of data analysis.
 - Demonstrate good coding documentation practices.
+
 ## Requirements
 - Python 3
 
 ## Sample Data
-Random numbers were used for CSV reading practice
+1. test_data.csv: Random numbers were used for CSV reading practice
+2. timestamp_current_voltage.csv: Data from OpenCEM
+    Source: https://github.com/OpenCEM-platform/opencem-dataset/raw/main
+    Direct Link, July 2025 Data: https://raw.githubusercontent.com/OpenCEM-platform/opencem-dataset/main/data/measurements/2025-07-a.csv
 
 ## Author
 Ebony Arlicia
