@@ -26,7 +26,7 @@ python practice.py
 - [ ] Read timestamped data from CSV.
 - [ ] Calcuate the power for each voltage and current.
 - [ ] Calculate the average power.
-- [ ] Determine and display the highest and lower input readings.
+- [ ] Determine and display the highest and lowest input readings.
 - [ ] Display a graph of the readings and power in three separate graphs.
 - [ ] Generate and display a report
 - [ ] Provide the option to save a report or open an existing report.
@@ -36,6 +36,7 @@ python practice.py
 ## Goals
 - Write basic functionality for initial practice of data analysis.
 - Demonstrate good coding documentation practices.
+- Complete data analyser and generate clear reports
 
 ## Requirements
 - Python 3
