@@ -28,7 +28,7 @@ python practice.py
 
 ## Goals
 - Write basic functionality for initial practice of data analysis.
-- 
+- Demonstrate good coding documentation practices.
 ## Requirements
 - Python 3
 
