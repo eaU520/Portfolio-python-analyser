@@ -23,15 +23,15 @@ python practice.py
 - [X] Complete 15 short Python practice exercises.
 - [X] Read data from a CSV file.
 - [X] Calculate minimum, maximum, and average values.
-- [ ] Read timestamped data from CSV.
-- [ ] Calcuate the power for each voltage and current.
-- [ ] Calculate the average power.
-- [ ] Determine and display the highest and lowest input readings.
+- [X] Read timestamped data from CSV.
+- [X] Calcuate the power for each voltage and current.
+- [X] Calculate the average power.
+- [X] Determine and display the highest and lowest input readings.
 - [ ] Display a graph of the readings and power in three separate graphs.
 - [ ] Generate and display a report
 - [ ] Provide the option to save a report or open an existing report.
-- [ ] Add test suite.
-- [ ] Improve Documentation.
+- [X] Add test suite.
+- [X] Improve Documentation.
 
 ## Goals
 - Write basic functionality for initial practice of data analysis.
