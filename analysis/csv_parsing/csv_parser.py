@@ -1,4 +1,6 @@
 import csv
+from models import measurement
+
 def read_csv(input_current_voltage_file):
     with open(input_current_voltage_file, newline='') as read_file:
         reader = csv.DictReader(read_file)

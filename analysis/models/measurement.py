@@ -1,4 +1,4 @@
-from analysis.analyser import power_calculation
+import analysis.analyser as analyser
 class Measurement:
     """ A simple class to store time, current, and voltage """
 
@@ -8,7 +8,7 @@ class Measurement:
         self.voltage = voltage
 
     def power():
-        return power_calculation(self.current, self.voltage)
+        return analyser.power_calculation(self.current, self.voltage)
     
     def __str__(self):
         return ''.join("Time ", self.timestamp, " current(mA) ", self.current, " voltage(mV) ", self.voltage)

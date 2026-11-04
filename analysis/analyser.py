@@ -1,7 +1,6 @@
 import csv_parsing.csv_parser
 import os
 from pathlib import Path
-import Math
 
 def power_calculation(current, voltage):
     return current * voltage
@@ -60,7 +59,7 @@ def print_summary_report(data):
 if __name__ == '__main__':
     #TODO: Add file picker
     #Works in normal directory
-    #path = Path(__file__).parent.resolve() / "sample-input-data/basic_current_voltage.csv"
+    #path = Path(__file__).parent.resolve() / "sample-input-data/basic_current_tkvoltage.csv"
     
     #Only works with VSCodroid
     path = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage.csv"
