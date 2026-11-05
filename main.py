@@ -1,7 +1,7 @@
 import csv_parsing.csv_parser
 import os
 from pathlib import Path
-from analysis.analyser import data_overview
+from analysis.analyser import data_overview, print_summary_report
 if __name__ == '__main__':
     #TODO: Add file picker
     #Works in normal directory
