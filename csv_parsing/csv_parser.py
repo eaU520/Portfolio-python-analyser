@@ -1,5 +1,5 @@
 import csv
-from models import measurement
+from models.measurement import Measurement
 
 def read_csv(input_current_voltage_file):
     with open(input_current_voltage_file, newline='') as read_file:
