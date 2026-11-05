@@ -15,20 +15,21 @@ def above_threshold(input_values, threshold):
 
 def data_overview(data):
     num_measures = len(data.keys())
-    max_current = max(data[key].current for key in data.keys())
+    print(data)
+    max_current = max(data[key].current for key in data.keys()) #TODO: Only search once
     max_voltage = max(data[key].voltage for key in data.keys())
     min_current = min(data[key].current for key in data.keys())
     min_voltage = min(data[key].voltage for key in data.keys())
-    avg_current = average_calculation([data[key].current for key in data.keys()])
+    avg_current = average_calculation([data[key].current for key in data.keys()])    #TODO: Datetime here
     avg_voltage = average_calculation([data[key].voltage for key in data.keys()])
-
-    #TODO: Datetime here
     first_time = 0
     last_time = 12
     power_dict = {}
     for key in data.keys():
         power_dict[key] = power_calculation(data[key].current, data[key].voltage)
-    avg_power = average_calculation([power_dict[key] for key in power_dict.keys()])
+    avg_power = average_calculation([power_dict[key] for key in power_dict.keys()])#TODO: Only search once
+    max_power = maximum_calculation([power_dict[key] for key in power_dict.keys()])
+    min_power = minimum_calculation([power_dict[key] for key in power_dict.keys()])
     return power_dict, avg_current, max_current, min_current, avg_power, max_power, min_power, avg_voltage, max_voltage, min_voltage, first_time, last_time
 def print_summary_report(data):
     power_dict, avg_current, max_current, min_current, avg_power, max_power, min_power, avg_voltage, max_voltage, min_voltage, first_time, last_time = data
