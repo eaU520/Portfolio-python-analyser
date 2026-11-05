@@ -1,3 +1,4 @@
+from datetime import datetime
 def power_calculation(current, voltage):
     return current * voltage
 
@@ -15,7 +16,6 @@ def above_threshold(input_values, threshold):
 
 def data_overview(data):
     num_measures = len(data.keys())
-    print(data)
     max_current = max(data[key].current for key in data.keys()) #TODO: Only search once
     max_voltage = max(data[key].voltage for key in data.keys())
     min_current = min(data[key].current for key in data.keys())
