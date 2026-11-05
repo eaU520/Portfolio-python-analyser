@@ -24,6 +24,11 @@ In a terminal/command line in the top-level directory
 ```bash
 python main.py
 ```
+Running tests: In a terminal/command line in the top-level directory
+
+```bash
+python -m pytest -v
+```
 
 ## Progress
 - [X] Complete 15 short Python practice exercises.
