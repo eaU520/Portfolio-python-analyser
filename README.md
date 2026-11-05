@@ -22,7 +22,7 @@ python practice.py
 In a terminal/command line in the top-level directory
 
 ```bash
-python analysis.py
+python main.py
 ```
 
 ## Progress
