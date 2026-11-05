@@ -35,7 +35,7 @@ python main.py
 - [X] Determine and display the highest and lowest input readings.
 - [ ] Allow for custom file input
 - [ ] Display a graph of the readings and power in three separate graphs.
-- [ ] Generate and display a report
+- [X] Generate and display a report
 - [ ] Provide the option to save a report or open an existing report.
 - [X] Add test suite.
 - [X] Improve Documentation.
