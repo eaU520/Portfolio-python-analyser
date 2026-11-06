@@ -7,7 +7,7 @@ def read_csv(input_current_voltage_file):
         measurement_dict = {}
         for row in reader:
             measurement_dict[row['timestamp']] = Measurement(row['timestamp'], float(row['current'].strip()), float(row['voltage'].strip()))
-            print(row['timestamp'], row['current'], row['voltage'])
+            #print(row['timestamp'], row['current'], row['voltage'])
     return measurement_dict
 def write_csv():
     pass

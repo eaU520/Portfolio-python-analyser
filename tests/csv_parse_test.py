@@ -1,6 +1,7 @@
 from csv_parsing.csv_parser import read_csv, write_csv
 
 def test_read_csv():
+    input_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage.csv"
     assert read_csv(input_file) != None
 
 def test_write_csv():
