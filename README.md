@@ -43,6 +43,7 @@ python -m pytest -v
 - [X] Generate and display a report
 - [ ] Provide the option to save a report or open an existing report.
 - [X] Add test suite.
+- [ ] Add error handling
 - [X] Improve Documentation.
 
 ## Goals
