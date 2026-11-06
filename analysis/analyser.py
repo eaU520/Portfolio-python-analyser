@@ -31,7 +31,7 @@ def data_overview(data):
     max_power = maximum_calculation([power_dict[key] for key in power_dict.keys()])
     min_power = minimum_calculation([power_dict[key] for key in power_dict.keys()])
     return power_dict, avg_current, max_current, min_current, avg_power, max_power, min_power, avg_voltage, max_voltage, min_voltage, first_time, last_time
-def print_summary_report(data):
+def print_summary_report(data, errors):
     power_dict, avg_current, max_current, min_current, avg_power, max_power, min_power, avg_voltage, max_voltage, min_voltage, first_time, last_time = data
     print("Summary Report: ")
     print(f"Generated : {str(datetime.now())}")
@@ -48,8 +48,8 @@ def print_summary_report(data):
     print(f"Maximum Voltage: {max_voltage}")
     print(f"Minimum Voltage: {min_voltage}")
     print("Data Quality")
-    print(f"Number of data points: {len(power_dict.keys())}")
-    print(f"Number of invalid data points: {len(power_dict.keys())}")
-    print(f"Number of missing data points: {len(power_dict.keys())}")
+    print(f"Number of valid data points: {len(power_dict.keys())}")
+    print(f"Number of invalid data points: {len(power_dict.keys())}")#TODO: Use errors and contains
+    print(f"Number of missing data points: {len(power_dict.keys())}")#TODO: Use error list and contains
     print(f"First Data point timestamp: {first_time}")
     print(f"Last Data point timestamp: {last_time}")

@@ -15,4 +15,4 @@ if __name__ == '__main__':
     #print(path)
     raw_data, errors = csv_parsing.csv_parser.read_csv(path)
     data = data_overview(raw_data)
-    print_summary_report(data)
+    print_summary_report(data, errors)
