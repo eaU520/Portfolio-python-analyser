@@ -17,6 +17,6 @@ if __name__ == '__main__':
     #Should also work on computer
     #path = str(os.system('pwd'))+"/sample-input-data/basic_current_voltage.csv"
     #print(path)
-    raw_data, errors = csv_parsing.csv_parser.read_csv(path_missing)
+    raw_data, errors = csv_parsing.csv_parser.read_csv(path_errors)
     data = data_overview(raw_data)
     print_summary_report(data, errors)
