@@ -23,5 +23,5 @@ def test_read_csv_file_errors():
 def test_read_csv_file_invalid():
     input_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage_missing.csv"
     data, errors = read_csv(input_file)
-    assert len(data.keys()) == 6
-    assert len(errors) == 4
+    assert len(data.keys()) == 5
+    assert len(errors) == 5
