@@ -8,11 +8,15 @@ if __name__ == '__main__':
     #path = Path(__file__).parent.resolve() / "sample-input-data/basic_current_tkvoltage.csv"
     
     #Only works with VSCodroid
-    path = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage.csv"
+    path_good = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage.csv"
+
+    path_missing = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage_missing.csv"
+
+    path_errors = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage_errors.csv"
     
     #Should also work on computer
     #path = str(os.system('pwd'))+"/sample-input-data/basic_current_voltage.csv"
     #print(path)
-    raw_data, errors = csv_parsing.csv_parser.read_csv(path)
+    raw_data, errors = csv_parsing.csv_parser.read_csv(path_missing)
     data = data_overview(raw_data)
     print_summary_report(data, errors)

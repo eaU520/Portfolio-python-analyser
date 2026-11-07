@@ -22,8 +22,8 @@ def data_overview(data):
     min_voltage = min(data[key].voltage for key in data.keys())
     avg_current = average_calculation([data[key].current for key in data.keys()])    #TODO: Datetime here
     avg_voltage = average_calculation([data[key].voltage for key in data.keys()])
-    first_time = 0
-    last_time = 12
+    first_time = min(data[key].timestamp for key in data.keys())
+    last_time = max(data[key].timestamp for key in data.keys())
     power_dict = {}
     for key in data.keys():
         power_dict[key] = power_calculation(data[key].current, data[key].voltage)
@@ -49,7 +49,7 @@ def print_summary_report(data, errors):
     print(f"Minimum Voltage: {min_voltage}")
     print("Data Quality")
     print(f"Number of valid data points: {len(power_dict.keys())}")
-    print(f"Number of invalid data points: {len(power_dict.keys())}")#TODO: Use errors and contains
-    print(f"Number of missing data points: {len(power_dict.keys())}")#TODO: Use error list and contains
+    print(f"Number of invalid data points: {len([invalid for invalid in errors if "invalid" in invalid])}")#TODO: Use errors and contains
+    print(f"Number of missing data points: {len([missing for missing in errors if "Missing" in missing])}")#TODO: Use error list and contains
     print(f"First Data point timestamp: {first_time}")
     print(f"Last Data point timestamp: {last_time}")
