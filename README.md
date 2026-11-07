@@ -56,9 +56,9 @@ python -m pytest -v
 
 ## Sample Data
 1. test_data.csv: Random numbers were used for CSV reading practice
-2. timestamp_current_voltage.csv: Data from OpenCEM
-    Source: https://github.com/OpenCEM-platform/opencem-dataset/raw/main
-    Direct Link, July 2025 Data: https://raw.githubusercontent.com/OpenCEM-platform/opencem-dataset/main/data/measurements/2025-07-a.csv
+2. basic_current_voltage.csv:
+3. basic_current_voltage_missing.csv:
+4. basic_current_voltage_errors.csv:
 
 ## Author
 Ebony Arlicia
