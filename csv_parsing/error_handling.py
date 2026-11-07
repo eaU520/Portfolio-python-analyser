@@ -5,7 +5,6 @@ def header_check(dict_reader):
 
 def missing_data(data, column_name, errors):
     if data == '':
-        errors.append("This data is missing")
         raise ValueError("This data is missing {}. The row is ignored".format(column_name))
 
 def time_check(time, errors):
