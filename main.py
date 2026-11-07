@@ -14,9 +14,14 @@ if __name__ == '__main__':
 
     path_errors = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage_errors.csv"
     
+    path_header = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage_header_invalid.csv"
+
     #Should also work on computer
     #path = str(os.system('pwd'))+"/sample-input-data/basic_current_voltage.csv"
     #print(path)
     raw_data, errors = csv_parsing.csv_parser.read_csv(path_errors)
-    data = data_overview(raw_data)
-    print_summary_report(data, errors)
+    if raw_data is not None and len(raw_data) > 0:
+        data = data_overview(raw_data)
+        print_summary_report(data, errors)
+    else:
+        print("Cannot process file or no valid data found, fix error(s) and try again.")

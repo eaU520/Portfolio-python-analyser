@@ -11,7 +11,7 @@ def read_csv(input_current_voltage_file):
             error_handling.header_check(reader)
         except ValueError as ve:
             print(ve)
-            return measurement_dict, errors
+            return None, errors
         for row in reader:
             time = row['timestamp'].strip()
             current = row['current'].strip()
