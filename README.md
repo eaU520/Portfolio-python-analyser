@@ -41,9 +41,10 @@ python -m pytest -v
 - [ ] Allow for custom file input
 - [ ] Display a graph of the readings and power in three separate graphs.
 - [X] Generate and display a report
-- [ ] Provide the option to save a report or open an existing report.
+- [-] Provide the option to save a report or open an existing report.
+    Save is happening now
 - [X] Add test suite.
-- [ ] Add error handling
+- [X] Add error handling
 - [X] Improve Documentation.
 
 ## Goals
