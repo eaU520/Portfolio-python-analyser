@@ -23,7 +23,12 @@ def read_csv(input_current_voltage_file):
             if not error_handling.voltage_check(voltage, errors):
                 continue
             measurement_dict[time] = Measurement(time, float(current), float(voltage))
-    #print(measurement_dict.keys())
+    output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_report.csv"
+    #TODO: Make above confirgurable
+    write_csv(measurement_dict, output_file)
     return measurement_dict, errors
-def write_csv():
-    pass
+def write_csv(data, output_file):
+    with open(output_file, 'w', newline='') as csvfile:
+        valid_data_writer = csv.writer(csvfile, delimiter=',')
+        for timestamp,measurement in data.items():
+            valid_data_writer.writerow([timestamp, measurement.current, measurement.voltage])
