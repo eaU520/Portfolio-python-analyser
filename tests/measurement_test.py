@@ -1,6 +1,6 @@
 from models.measurement import Measurement
-import datetime
+
 def test_create_measurement():
-    #measure = Measurement(datetime,2.5,100)
-    #self.assertTrue(Measurement(datetime,2.5,100) >= measure)
-    pass
+    date_test = "2027-12-22 14:22"
+    measure = Measurement(date_test,2.5,100)
+    assert Measurement(date_test,2.5,100).current >= measure.current

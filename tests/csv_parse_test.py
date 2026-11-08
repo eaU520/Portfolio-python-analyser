@@ -29,5 +29,5 @@ def test_read_csv_file_invalid():
 def test_read_csv_header_invalid():
     input_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage_header_invalid.csv"
     data, errors = read_csv(input_file)
-    assert len(data.keys()) == 0
+    assert None == data
     assert len(errors) == 0
