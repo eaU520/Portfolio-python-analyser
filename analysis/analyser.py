@@ -20,7 +20,7 @@ def minimum_calculation(input_values):
 def above_threshold(input_values, threshold):
     return [val for val in input_values if val > threshold]
 
-def data_overview(data):
+def data_overview(data, threshold):
     num_measures = len(data.keys())
     max_current = max(data[key].current for key in data.keys()) #TODO: Only search once
     max_voltage = max(data[key].voltage for key in data.keys())
@@ -30,21 +30,23 @@ def data_overview(data):
     avg_voltage = average_calculation([data[key].voltage for key in data.keys()])
     first_time = min(data[key].timestamp for key in data.keys())
     last_time = max(data[key].timestamp for key in data.keys())
+    current_threshold = above_threshold([data[key].current for key in data.keys()], threshold)
     power_dict = {}
     for key in data.keys():
         power_dict[key] = power_calculation(data[key].current, data[key].voltage)
     avg_power = average_calculation([power_dict[key] for key in power_dict.keys()])#TODO: Only search once
     max_power = maximum_calculation([power_dict[key] for key in power_dict.keys()])
     min_power = minimum_calculation([power_dict[key] for key in power_dict.keys()])
-    return power_dict, avg_current, max_current, min_current, avg_power, max_power, min_power, avg_voltage, max_voltage, min_voltage, first_time, last_time
-def print_summary_report(data, errors):
-    power_dict, avg_current, max_current, min_current, avg_power, max_power, min_power, avg_voltage, max_voltage, min_voltage, first_time, last_time = data
+    return power_dict, avg_current, max_current, min_current, avg_power, max_power, min_power, avg_voltage, max_voltage, min_voltage, first_time, last_time, current_threshold
+def print_summary_report(data, errors, threshold):
+    power_dict, avg_current, max_current, min_current, avg_power, max_power, min_power, avg_voltage, max_voltage, min_voltage, first_time, last_time, current_threshold = data
     print("Summary Report: ")
     print(f"Generated : {str(datetime.now())}")
     print("Current Statistics")
     print(f"Average Current: {avg_current}")
     print(f"Maximum Current: {max_current}")
     print(f"Minimum Current: {min_current}")
+    print(f"The following currents were above {threshold} mA: {current_threshold}")
     print("Power Statistics")
     print(f"Average Power: {avg_power}")
     print(f"Maximum Power: {max_power}")

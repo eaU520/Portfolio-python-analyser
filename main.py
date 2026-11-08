@@ -19,9 +19,10 @@ if __name__ == '__main__':
     #Should also work on computer
     #path = str(os.system('pwd'))+"/sample-input-data/basic_current_voltage.csv"
     #print(path)
+    threshold = 1.0#TODO: Make configurable
     raw_data, errors = csv_parsing.csv_parser.read_csv(path_errors)
     if raw_data is not None and len(raw_data) > 0:
-        data = data_overview(raw_data)
-        print_summary_report(data, errors)
+        data = data_overview(raw_data, threshold)
+        print_summary_report(data, errors, threshold)
     else:
         print("Cannot process file or no valid data found, fix error(s) and try again.")
