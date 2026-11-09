@@ -1,7 +1,9 @@
 import csv
 from models.measurement import Measurement
 import datetime
+from pathlib import Path
 from csv_parsing import error_handling
+
 def read_csv(input_current_voltage_file):
     with open(input_current_voltage_file, newline='') as read_file:
         reader = csv.DictReader(read_file)
@@ -23,7 +25,9 @@ def read_csv(input_current_voltage_file):
             if not error_handling.voltage_check(voltage, errors):
                 continue
             measurement_dict[time] = Measurement(time, float(current), float(voltage))
-    output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_report.csv"
+    #output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_report.csv"
+    #output_file = Path(__file__).parent.resolve() / "reports/valid_report.csv"
+    output_file = "C:/Users/ebony/Documents/python-engineering-data-analyser/reports/valid_report.csv"
     #TODO: Make above confirgurable
     write_csv(measurement_dict, output_file)
     return measurement_dict, errors
