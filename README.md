@@ -22,7 +22,12 @@ python practice.py
 In a terminal/command line in the top-level directory
 
 ```bash
-python analysis.py
+python main.py
+```
+Running tests: In a terminal/command line in the top-level directory
+
+```bash
+python -m pytest -v
 ```
 
 ## Progress
@@ -35,9 +40,11 @@ python analysis.py
 - [X] Determine and display the highest and lowest input readings.
 - [ ] Allow for custom file input
 - [ ] Display a graph of the readings and power in three separate graphs.
-- [ ] Generate and display a report
-- [ ] Provide the option to save a report or open an existing report.
+- [X] Generate and display a report
+- [-] Provide the option to save a report or open an existing report.
+    Save is happening now
 - [X] Add test suite.
+- [X] Add error handling
 - [X] Improve Documentation.
 
 ## Goals
@@ -50,9 +57,9 @@ python analysis.py
 
 ## Sample Data
 1. test_data.csv: Random numbers were used for CSV reading practice
-2. timestamp_current_voltage.csv: Data from OpenCEM
-    Source: https://github.com/OpenCEM-platform/opencem-dataset/raw/main
-    Direct Link, July 2025 Data: https://raw.githubusercontent.com/OpenCEM-platform/opencem-dataset/main/data/measurements/2025-07-a.csv
+2. basic_current_voltage.csv:
+3. basic_current_voltage_missing.csv:
+4. basic_current_voltage_errors.csv:
 
 ## Author
 Ebony Arlicia
