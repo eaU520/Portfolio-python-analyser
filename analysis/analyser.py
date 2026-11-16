@@ -59,8 +59,9 @@ def print_summary_report(data, errors, threshold):
     print(f"Number of valid data points: {len(power_dict.keys())}")
     print(f"Number of invalid data points: {len([invalid for invalid in errors if "invalid" in invalid])}")#TODO: Use errors and contains
     print(f"Number of missing data points: {len([missing for missing in errors if "Missing" in missing])}")
-    print("The errors are as follows:")
-    for error in errors:
-        print(error)
+    if len(errors) > 0:
+        print("The errors are as follows:")
+        for error in errors:
+            print(error)
     print(f"First Data point timestamp: {first_time}")
     print(f"Last Data point timestamp: {last_time}")

@@ -25,14 +25,23 @@ def read_csv(input_current_voltage_file):
             if not error_handling.voltage_check(voltage, errors):
                 continue
             measurement_dict[time] = Measurement(time, float(current), float(voltage))
-    #output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_report.csv"
+    invalid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/invalid_report.csv"
+    valid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_report.csv"
     #output_file = Path(__file__).parent.resolve() / "reports/valid_report.csv"
-    output_file = "C:/Users/ebony/Documents/python-engineering-data-analyser/reports/valid_report.csv"
+    #output_file = "C:/Users/ebony/Documents/python-engineering-data-analyser/reports/valid_report.csv"
     #TODO: Make above confirgurable
-    write_csv(measurement_dict, output_file)
+    write_csv(measurement_dict, valid_output_file, errors, invalid_output_file)
     return measurement_dict, errors
-def write_csv(data, output_file):
-    with open(output_file, 'w', newline='') as csvfile:
-        valid_data_writer = csv.writer(csvfile, delimiter=',')
-        for timestamp,measurement in data.items():
-            valid_data_writer.writerow([timestamp, measurement.current, measurement.voltage])
+def write_csv(data, valid_output_file, errors, invalid_output_file):
+    if len(data.keys()) > 0:
+        with open(valid_output_file, 'w', newline='') as csvfile:
+            valid_data_writer = csv.writer(csvfile, delimiter=',')
+            for timestamp,measurement in data.items():
+                valid_data_writer.writerow([timestamp, measurement.current, measurement.voltage])
+    elif len(errors) > 0:
+        with open(invalid_output_file, 'w', newline='') as csv_error_file:
+            invalid_data_writer = csv.writer(csv_error_file, delimiter=',')
+            print(len(errors))
+            print(f"Errors {errors}")
+            for i in range(0,len(errors)-1):
+                invalid_data_writer.writerow([errors[i], errors[i+1]])
