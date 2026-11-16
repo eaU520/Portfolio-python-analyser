@@ -28,4 +28,7 @@ if __name__ == '__main__':
     else:
         print("Cannot process file or no valid data found, fix error(s) and try again.")
 
-    simple_plot()
+    voltages = [raw_data[key].voltage for key in raw_data.keys()]
+    currents = [raw_data[key].current for key in raw_data.keys()]
+    times = [time for time in raw_data.keys()]
+    simple_plot(times, "Time", voltages, "Voltage (V)", "Voltage vs. Time")
