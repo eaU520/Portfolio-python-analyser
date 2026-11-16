@@ -21,7 +21,7 @@ if __name__ == '__main__':
     #path = str(os.system('pwd'))+"/sample-input-data/basic_current_voltage.csv"
     print(path)
     threshold = 1.0#TODO: Make configurable
-    raw_data, errors = csv_parsing.csv_parser.read_csv(path)
+    raw_data, errors = csv_parsing.csv_parser.read_csv(path_header)
     if raw_data is not None and len(raw_data) > 0:
         data = data_overview(raw_data, threshold)
         print_summary_report(data, errors, threshold)
