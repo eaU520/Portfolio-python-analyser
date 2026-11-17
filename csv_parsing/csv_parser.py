@@ -55,3 +55,8 @@ def parse_via_numpy(input_file):
 def parse_via_pandas(input_file):
     df = pandas.read_csv(input_file)
     print(df)
+    valid_time = df[df["timestamp"].notna()]
+    valid_current = valid_time[valid_time["current"].notna()]
+    valid_voltage = valid_current[valid_current["voltage"].notna()]
+    #df[pandas.to_datetime(df["timestamp"].notna(), errors="coerce")]#format="%Y-%m-%d %H:%M")]
+    print(valid_voltage)
