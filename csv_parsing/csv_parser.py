@@ -1,9 +1,9 @@
 import csv
 from models.measurement import Measurement
-import datetime
 from pathlib import Path
 from csv_parsing import error_handling
-
+import numpy as np
+import pandas
 def read_csv(input_current_voltage_file):
     with open(input_current_voltage_file, newline='') as read_file:
         reader = csv.DictReader(read_file)
@@ -45,3 +45,13 @@ def write_csv(data, valid_output_file, errors, invalid_output_file):
             print(f"Errors {errors}")
             for i in range(0,len(errors)-1):
                 invalid_data_writer.writerow([errors[i], errors[i+1]])
+def parse_via_numpy(input_file):
+    input_data = np.genfromtxt(input_file, delimiter=",", dtype=float, skip_header=1, encoding="utf-8")
+    power = np.multiply(input_data[:,1], input_data[:,2])
+    #print("NumPy power", power)
+    max_power, min_power, avg_power = np.nanmax(power), np.nanmin(power), np.average(power)
+    print("NumPy Results",max_power, min_power, avg_power)
+
+def parse_via_pandas(input_file):
+    df = pandas.read_csv(input_file)
+    print(df)

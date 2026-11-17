@@ -22,6 +22,8 @@ if __name__ == '__main__':
     #path = str(os.system('pwd'))+"/sample-input-data/basic_current_voltage.csv"
     print(path)
     threshold = 1.0#TODO: Make configurable
+    csv_parsing.csv_parser.parse_via_numpy(path)
+    
     raw_data, errors = csv_parsing.csv_parser.read_csv(path)
     if raw_data is not None and len(raw_data) > 0:
         data = data_overview(raw_data, threshold)
@@ -32,4 +34,7 @@ if __name__ == '__main__':
     voltages = [raw_data[key].voltage for key in raw_data.keys()]
     currents = [raw_data[key].current for key in raw_data.keys()]
     times = [time for time in raw_data.keys()]
+
+    csv_parsing.csv_parser.parse_via_pandas(path)
     simple_plot(times, "Time", voltages, "Voltage (V)", "Voltage vs. Time")
+    
