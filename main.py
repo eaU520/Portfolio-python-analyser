@@ -7,7 +7,7 @@ if __name__ == '__main__':
     #TODO: Add file picker
     #Works in normal directory
     #path = Path(__file__).parent.resolve() / "sample-input-data/basic_current_voltage.csv"
-    path = Path(__file__).parent.resolve() / "sample-input-data/basic_current_voltage_missing.csv"
+    #path = Path(__file__).parent.resolve() / "sample-input-data/basic_current_voltage_missing.csv"
     
     #Only works with VSCodroid
     path_good = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage.csv"
@@ -20,11 +20,10 @@ if __name__ == '__main__':
 
     #Should also work on computer
     #path = str(os.system('pwd'))+"/sample-input-data/basic_current_voltage.csv"
-    print(path)
     threshold = 1.0#TODO: Make configurable
-    csv_parsing.csv_parser.parse_via_numpy(path)
+    csv_parsing.csv_parser.parse_via_numpy(path_missing)
     
-    raw_data, errors = csv_parsing.csv_parser.read_csv(path)
+    raw_data, errors = csv_parsing.csv_parser.read_csv(path_missing)
     if raw_data is not None and len(raw_data) > 0:
         data = data_overview(raw_data, threshold)
         print_summary_report(data, errors, threshold)
@@ -35,6 +34,6 @@ if __name__ == '__main__':
     currents = [raw_data[key].current for key in raw_data.keys()]
     times = [time for time in raw_data.keys()]
 
-    csv_parsing.csv_parser.parse_via_pandas(path)
-    simple_plot(times, "Time", voltages, "Voltage (V)", "Voltage vs. Time")
+    csv_parsing.csv_parser.parse_via_pandas(path_missing)
+   # simple_plot(times, "Time", voltages, "Voltage (V)", "Voltage vs. Time")
     

@@ -25,10 +25,10 @@ def read_csv(input_current_voltage_file):
             if not error_handling.voltage_check(voltage, errors):
                 continue
             measurement_dict[time] = Measurement(time, float(current), float(voltage))
-    #invalid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/invalid_report.csv"
-    #valid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_report.csv"
-    valid_output_file = Path(__file__).parent.resolve() / "../reports/valid_report.csv"
-    invalid_output_file = "C:/Users/ebony/Documents/python-engineering-data-analyser/reports/invalid_report.csv"
+    invalid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/invalid_report.csv"
+    valid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_report.csv"
+    #valid_output_file = Path(__file__).parent.resolve() / "../reports/valid_report.csv"
+    #invalid_output_file = "C:/Users/ebony/Documents/python-engineering-data-analyser/reports/invalid_report.csv"
     #TODO: Make above confirgurable
     write_csv(measurement_dict, valid_output_file, errors, invalid_output_file)
     return measurement_dict, errors
