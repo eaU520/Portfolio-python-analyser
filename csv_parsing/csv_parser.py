@@ -58,5 +58,12 @@ def parse_via_pandas(input_file):
     valid_time = df[df["timestamp"].notna()]
     valid_current = valid_time[valid_time["current"].notna()]
     valid_voltage = valid_current[valid_current["voltage"].notna()]
+    valid_data = df.replace(r'^\s*$', np.nan, regex=True).dropna()
     #df[pandas.to_datetime(df["timestamp"].notna(), errors="coerce")]#format="%Y-%m-%d %H:%M")]
-    print(valid_voltage)
+    """average_current = valid_current["current"].mean()
+    max_current = valid_current["current"].max()
+    min_current = valid_current["current"].min()
+    average_voltage = valid_voltage["voltage"].mean()
+    max_voltage = valid_voltage["voltage"].max()
+    min_voltage = valid_voltage["voltage"].min()"""
+    print(valid_data)
