@@ -36,6 +36,7 @@ def write_csv(data, valid_output_file, errors, invalid_output_file):
     if len(data.keys()) > 0:
         with open(valid_output_file, 'w', newline='') as csvfile:
             valid_data_writer = csv.writer(csvfile, delimiter=',')
+            valid_data_writer.writerow(['timestamp','current','voltage'])
             for timestamp,measurement in data.items():
                 valid_data_writer.writerow([timestamp, measurement.current, measurement.voltage])
     elif len(errors) > 0:
@@ -54,17 +55,21 @@ def parse_via_numpy(input_file):
 
 def parse_via_pandas(input_file):
     df = pandas.read_csv(input_file)
-    print(df)
     valid_data = df.replace(r'^\s*$', np.nan, regex=True).dropna()
-    #df[pandas.to_datetime(df["timestamp"].notna(), errors="coerce")]#format="%Y-%m-%d %H:%M")]
-    #average_current, max_current, min_current = valid_data.groupby("current").agg(["mean", "max", "min"])
-    #average_voltage, max_voltage, min_voltage = valid_data.groupby("voltage").agg(["mean", "max", "min"])
-    voltage = valid_data
-    voltage["mean"]= valid_data.groupby("voltage").agg({"voltage":["mean", "max", "min"]})
+    print(valid_data)
+    
+    average_current, max_current, min_current = pandas.to_numeric(valid_data["current"]).mean(), pandas.to_numeric(valid_data["current"]).max(), pandas.to_numeric(valid_data["current"]).min()
+    
+    average_voltage, max_voltage, min_voltage = pandas.to_numeric(valid_data["voltage"]).mean(), pandas.to_numeric(valid_data["voltage"]).max(), pandas.to_numeric(valid_data["voltage"]).min()
+    voltage = pandas.to_numeric(valid_data["voltage"]).mean()
+    #voltage["mean"]= valid_data.groupby("voltage").agg({"voltage":["mean", "max", "min"]})
     print(voltage)
-    """
+    valid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_data.csv"
+    invalid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/invalid_data.csv"
+    invalid_data = pandas.concat([df,valid_data]).drop_duplicates(keep=False)
+    print(invalid_data)
     print(average_current, average_voltage)
     print(min_current, min_voltage)
     print(max_current, max_voltage)
-    """
-    print(valid_data)
+    valid_data.to_csv(valid_output_file)
+    invalid_data.to_csv(invalid_output_file)

@@ -37,5 +37,5 @@ if __name__ == '__main__':
     times = [time for time in raw_data.keys()]
     simple_plot(times, "Time", voltages, "Voltage (V)", "Voltage vs. Time")
     """
-    csv_parsing.csv_parser.parse_via_pandas(path)
+    csv_parsing.csv_parser.parse_via_pandas(path_missing)
     
