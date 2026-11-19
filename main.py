@@ -25,7 +25,7 @@ if __name__ == '__main__':
     """
     csv_parsing.csv_parser.parse_via_numpy(path)
     
-    raw_data, errors = csv_parsing.csv_parser.read_csv(path)
+    raw_data, errors = csv_parsing.csv_parser.read_csv(path_missing)
     if raw_data is not None and len(raw_data) > 0:
         data = data_overview(raw_data, threshold)
         print_summary_report(data, errors, threshold)

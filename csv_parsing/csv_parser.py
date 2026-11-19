@@ -59,7 +59,8 @@ def parse_via_pandas(input_file):
     #df[pandas.to_datetime(df["timestamp"].notna(), errors="coerce")]#format="%Y-%m-%d %H:%M")]
     #average_current, max_current, min_current = valid_data.groupby("current").agg(["mean", "max", "min"])
     #average_voltage, max_voltage, min_voltage = valid_data.groupby("voltage").agg(["mean", "max", "min"])
-    voltage = valid_data.groupby("voltage").agg({"voltage":["mean", "max", "min"]})
+    voltage = valid_data
+    voltage["mean"]= valid_data.groupby("voltage").agg({"voltage":["mean", "max", "min"]})
     print(voltage)
     """
     print(average_current, average_voltage)

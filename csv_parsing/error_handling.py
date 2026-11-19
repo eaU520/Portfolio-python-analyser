@@ -11,7 +11,7 @@ def time_check(time, errors):
     try:
         missing_data(time, "timestamp", errors)
     except:
-        errors.append(f"Missing timestamp. Ignoring this time data: {time} and entire row")
+        errors.append("Missing timestamp. Ignoring this entire row")
         return False
     else:
         try:#2026-10-31 08:00
@@ -26,7 +26,7 @@ def current_check(current, errors):
     try:
         missing_data(current, "current", errors)
     except:
-        errors.append(f"Missing current. Ignoring this current data: {current} and entire row")
+        errors.append("Missing current. Ignoring this entire row")
         return False
     else:
         try:
@@ -44,7 +44,7 @@ def voltage_check(voltage, errors):
     try:
         missing_data(voltage, "voltage", errors)
     except:
-        errors.append(f"Missing voltage. Ignoring this voltage data: {voltage} and entire row")
+        errors.append("Missing voltage. Ignoring this git statentire row")
         return False
     else:
         try:
