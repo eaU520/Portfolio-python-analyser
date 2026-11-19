@@ -1,0 +1,21 @@
+Summary Report: 
+Generated : 2026-11-18 21:47:04.816861
+Current Statistics
+Average Current: 5.7299999999999995
+Maximum Current: 16.3
+Minimum Current: 1.9
+The following currents were above 1.0 mA: [2.3, 4.0, 4.8, 5.6, 1.9, 16.3, 3.5, 10.2, 6.0, 2.7]
+Power Statistics
+Average Power: 755.449
+Maximum Power: 2122.2599999999998
+Minimum Power: 95.0
+Voltage Statistics
+Average Voltage: 130.68
+Maximum Voltage: 240.0
+Minimum Voltage: 50.0
+Data Quality
+Number of valid data points: 10
+Number of invalid data points: 0
+Number of missing data points: 0
+First Data point timestamp: 2026-10-31 08:00
+Last Data point timestamp: 2026-10-31 08:09
