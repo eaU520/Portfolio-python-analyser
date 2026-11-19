@@ -44,7 +44,7 @@ def voltage_check(voltage, errors):
     try:
         missing_data(voltage, "voltage", errors)
     except:
-        errors.append("Missing voltage. Ignoring this entire row")
+        errors.append("Missing voltage. Ignoring this git statentire row")
         return False
     else:
         try:
