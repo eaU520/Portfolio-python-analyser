@@ -55,15 +55,15 @@ def parse_via_numpy(input_file):
 def parse_via_pandas(input_file):
     df = pandas.read_csv(input_file)
     print(df)
-    valid_time = df[df["timestamp"].notna()]
-    valid_current = valid_time[valid_time["current"].notna()]
-    valid_voltage = valid_current[valid_current["voltage"].notna()]
     valid_data = df.replace(r'^\s*$', np.nan, regex=True).dropna()
     #df[pandas.to_datetime(df["timestamp"].notna(), errors="coerce")]#format="%Y-%m-%d %H:%M")]
-    """average_current = valid_current["current"].mean()
-    max_current = valid_current["current"].max()
-    min_current = valid_current["current"].min()
-    average_voltage = valid_voltage["voltage"].mean()
-    max_voltage = valid_voltage["voltage"].max()
-    min_voltage = valid_voltage["voltage"].min()"""
+    #average_current, max_current, min_current = valid_data.groupby("current").agg(["mean", "max", "min"])
+    #average_voltage, max_voltage, min_voltage = valid_data.groupby("voltage").agg(["mean", "max", "min"])
+    voltage = valid_data.groupby("voltage").agg({"voltage":["mean", "max", "min"]})
+    print(voltage)
+    """
+    print(average_current, average_voltage)
+    print(min_current, min_voltage)
+    print(max_current, max_voltage)
+    """
     print(valid_data)
