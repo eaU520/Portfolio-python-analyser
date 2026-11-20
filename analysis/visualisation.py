@@ -3,7 +3,7 @@
 def simple_plot(x,x_label, y, y_label, title):
     pass
 """
-    plotter.plot(x,y)
+    plotter.plot(x,ygit)
     plotter.xlabel(x_label)
     plotter.ylabel(y_label)
     plotter.title(title)

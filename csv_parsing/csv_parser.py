@@ -56,7 +56,11 @@ def parse_via_numpy(input_file):
 def parse_via_pandas(input_file):
     df = pandas.read_csv(input_file)
     valid_data = df.replace(r'^\s*$', np.nan, regex=True).dropna()
-    print(valid_data)
+    headers = list(valid_data.columns.values)
+    if headers != ['timestamp', 'current', 'voltage']:
+        print(f"Wrong headers must be {headers}")
+        return
+    #print(valid_data)
     
     average_current, max_current, min_current = pandas.to_numeric(valid_data["current"]).mean(), pandas.to_numeric(valid_data["current"]).max(), pandas.to_numeric(valid_data["current"]).min()
     
@@ -67,9 +71,5 @@ def parse_via_pandas(input_file):
     valid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_data.csv"
     invalid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/invalid_data.csv"
     invalid_data = pandas.concat([df,valid_data]).drop_duplicates(keep=False)
-    print(invalid_data)
-    print(average_current, average_voltage)
-    print(min_current, min_voltage)
-    print(max_current, max_voltage)
     valid_data.to_csv(valid_output_file)
     invalid_data.to_csv(invalid_output_file)
