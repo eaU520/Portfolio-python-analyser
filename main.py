@@ -45,8 +45,12 @@ if __name__ == '__main__':
     voltages = [raw_data[key].voltage for key in raw_data.keys()]
     currents = [raw_data[key].current for key in raw_data.keys()]
     times = [time for time in raw_data.keys()]
+    powers = [raw_data[key].voltage*raw_data[key].current for key in raw_data.keys()]
 
-    #simple_plot(times, "Time", voltages, "Voltage (V)", "Voltage vs. Time")
+    simple_plot(times, "Time", voltages, "Voltage(V)", "Voltage vs. Time")
+    simple_plot(times, "Time", currents, "Current(mA)", "Current vs. Time")
+    simple_plot(times, "Time", powers, "Power(W)", "Voltage vs. Time")
+        
     """
     ##PANDAS
     """
