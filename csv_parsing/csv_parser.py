@@ -53,23 +53,26 @@ def parse_via_numpy(input_file):
     max_power, min_power, avg_power = np.nanmax(power), np.nanmin(power), np.average(power)
     print("NumPy Results",max_power, min_power, avg_power)
 
-def parse_via_pandas(input_file):
+def parse_via_pandas(input_file, invalid_output_file, valid_output_file):
     df = pandas.read_csv(input_file)
     valid_data = df.replace(r'^\s*$', np.nan, regex=True).dropna()
     headers = list(valid_data.columns.values)
     if headers != ['timestamp', 'current', 'voltage']:
         print(f"Wrong headers must be {headers}")
         return
-    #print(valid_data)
+    print(valid_data)
     
     average_current, max_current, min_current = pandas.to_numeric(valid_data["current"]).mean(), pandas.to_numeric(valid_data["current"]).max(), pandas.to_numeric(valid_data["current"]).min()
     
     average_voltage, max_voltage, min_voltage = pandas.to_numeric(valid_data["voltage"]).mean(), pandas.to_numeric(valid_data["voltage"]).max(), pandas.to_numeric(valid_data["voltage"]).min()
-    voltage = pandas.to_numeric(valid_data["voltage"]).mean()
+   
     #voltage["mean"]= valid_data.groupby("voltage").agg({"voltage":["mean", "max", "min"]})
-    print(voltage)
-    valid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_data.csv"
-    invalid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/invalid_data.csv"
+    valid_data["power"] = pandas.to_numeric(valid_data["current"]) * pandas.to_numeric(valid_data["voltage"])
+    average_power, max_power, min_power = pandas.to_numeric(valid_data["power"]).mean(), pandas.to_numeric(valid_data["power"]).max(), pandas.to_numeric(valid_data["power"]).min()
+ 
+    #valid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_data.csv"
+    #invalid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/invalid_data.csv"
+
     invalid_data = pandas.concat([df,valid_data]).drop_duplicates(keep=False)
     valid_data.to_csv(valid_output_file)
     invalid_data.to_csv(invalid_output_file)

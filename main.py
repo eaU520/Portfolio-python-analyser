@@ -6,8 +6,8 @@ from analysis.visualisation import simple_plot
 if __name__ == '__main__':
     #TODO: Add file picker
     #Works in normal directory
-    path = Path(__file__).parent.resolve() / "sample-input-data/basic_current_voltage.csv"
-    #path = Path(__file__).parent.resolve() / "sample-input-data/basic_current_voltage_missing.csv"
+    #path = Path(__file__).parent.resolve() / "sample-input-data/basic_current_voltage.csv"
+    path = Path(__file__).parent.resolve() / "sample-input-data/basic_current_voltage_missing.csv"
     output_text_file = Path(__file__).parent.resolve() / "reports/data_summary.txt"
 
     #Only works with VSCodroid
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     
     path_header = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage_header_invalid.csv"
 
-    output_text_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/data_summary.txt"
+    #output_text_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/data_summary.txt"
 
     #Should also work on computer
     #path = str(os.system('pwd'))+"/sample-input-data/basic_current_voltage.csv"
@@ -29,6 +29,8 @@ if __name__ == '__main__':
     ##NUMPY
     csv_parsing.csv_parser.parse_via_numpy(path)
     """
+    """
+    ##MANUAL
     raw_data, errors = csv_parsing.csv_parser.read_csv(path)
     if raw_data is not None and len(raw_data) > 0:
         data = data_overview(raw_data, threshold)
@@ -36,7 +38,9 @@ if __name__ == '__main__':
         write_report_to_file(data, errors, threshold, output_text_file)
     else:
         print("Cannot process file or no valid data found, fix error(s) and try again.")
-
+    """
+    raw_data, errors = csv_parsing.csv_parser.read_csv(path)
+    
     #TODO: Abstract below for plotting
     voltages = [raw_data[key].voltage for key in raw_data.keys()]
     currents = [raw_data[key].current for key in raw_data.keys()]
@@ -44,5 +48,9 @@ if __name__ == '__main__':
 
     #simple_plot(times, "Time", voltages, "Voltage (V)", "Voltage vs. Time")
     """
-    csv_parsing.csv_parser.parse_via_pandas(path_missing)
+    ##PANDAS
     """
+    invalid_output_file = Path(__file__).parent.resolve() / "reports/invalid_data.csv"
+    valid_output_file = Path(__file__).parent.resolve() / "reports/valid_data.csv"
+    csv_parsing.csv_parser.parse_via_pandas(path,invalid_output_file, valid_output_file)
+    
