@@ -7,8 +7,8 @@ class Measurement:
         self.current = current
         self.voltage = voltage
 
-    def power():
-        return analyser.power_calculation(self.current, self.voltage)
+    def power(self):
+        return analysis.power_calculation(self.current, self.voltage)
     
     def __str__(self):
         return ''.join("Time ", self.timestamp, " current(mA) ", self.current, " voltage(mV) ", self.voltage)
