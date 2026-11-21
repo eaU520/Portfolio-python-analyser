@@ -2,7 +2,7 @@ import csv_parsing.csv_parser
 import os
 from pathlib import Path
 from reports.report_generator import data_overview, print_summary_report, write_report_to_file
-from analysis.visualisation import simple_plot 
+#from analysis.visualisation import simple_plot 
 from logs import info_logger
 import argparse
 import logging
