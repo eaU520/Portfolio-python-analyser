@@ -2,3 +2,5 @@ INFO:logs.info_logger:Started
 INFO:logs.info_logger:Finished
 INFO:logs.info_logger:Started
 INFO:logs.info_logger:Finished
+INFO:logs.info_logger:Started
+INFO:logs.info_logger:Finished

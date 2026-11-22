@@ -49,7 +49,7 @@ if __name__ == '__main__':
         ##NUMPY
         csv_parsing.csv_parser.parse_via_numpy(path)
         """
-        """
+        logger_info.info(f"Setting threshold to {threshold}")
         ##MANUAL
         raw_data, errors = csv_parsing.csv_parser.read_csv(path)
         if raw_data is not None and len(raw_data) > 0:
@@ -60,13 +60,13 @@ if __name__ == '__main__':
             print("Cannot process file or no valid data found, fix error(s) and try again.")
         
         raw_data, errors = csv_parsing.csv_parser.read_csv(path)
-        
+    
         #TODO: Abstract below for plotting
         voltages = [raw_data[key].voltage for key in raw_data.keys()]
         currents = [raw_data[key].current for key in raw_data.keys()]
         times = [time for time in raw_data.keys()]
         powers = [raw_data[key].voltage*raw_data[key].current for key in raw_data.keys()]
-
+        """
         simple_plot(times, "Time", voltages, "Voltage(V)", "Voltage vs. Time")
         simple_plot(times, "Time", currents, "Current(mA)", "Current vs. Time")
         simple_plot(times, "Time", powers, "Power(W)", "Voltage vs. Time")
