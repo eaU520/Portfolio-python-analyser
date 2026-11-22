@@ -26,6 +26,7 @@ if __name__ == '__main__':
         #TODO: Add file picker
         #Works in normal directory
         #path = Path(__file__).parent.resolve() / "sample-input-data/basic_current_voltage.csv"
+        logger_info.info("Starting program")
         path = Path(__file__).parent.resolve() / "sample-input-data/basic_current_voltage_missing.csv"
         output_text_file = Path(__file__).parent.resolve() / "reports/data_summary.txt"
 
