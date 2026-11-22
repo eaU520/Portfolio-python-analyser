@@ -5,7 +5,6 @@ from reports.report_generator import data_overview, print_summary_report, write_
 #from analysis.visualisation import simple_plot 
 from logs import info_logger
 import argparse
-import logging
 
 logger_info = info_logger.initialize_logger()
 
@@ -78,5 +77,6 @@ if __name__ == '__main__':
         valid_output_file = Path(__file__).parent.resolve() / "reports/valid_data.csv"
         csv_parsing.csv_parser.parse_via_pandas(path,invalid_output_file, valid_output_file)
         """
+        logger_info.info(f"Program completed")
     except:
         logger_info.error("Bailed somewhere")
