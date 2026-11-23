@@ -8,16 +8,19 @@ import argparse
 
 logger_info = info_logger.initialize_logger()
 
-parser = argparse.ArgumentParser("Python Analysis Arguments")
-parser.add_argument("-o", "--Output", help="Show output message")
+parser = argparse.ArgumentParser(description="Python Analysis Arguments")
+parser.add_argument("-o", "--output", type=str, help="Provide  path to output file")
+parser.add_argument("-i", "--input", type=str, help="Provide path to input file")
+parser.add_argument("-s", "--summary", help="Create a summary text file of the analytics")
+parser.add_argument("-p", "--pandas", help="Complete analysis using pandas")
+parser.add_argument("-n", "--numpy", help="Complete analysis using numpy")
+parser.add_argument("-m", "--manual", help="Complete analysis using manual error checking, this is the default")
+parser.add_argument("-g", "--graph", help="Create three graphs of voltage, current, and power versus time")
 args = parser.parse_args()
 
-if args.Output:
-    print("Output:", args.Output)#TODO: add inline arguments for input file, -i or --input
-    #-o or --output, output csv
-    #-s or --summary, generate summary text file
-    #-p or --pandas, pandas analysis
-    #-n or --numpy, numpy analysis
+if args.output:
+    output_file = args.output
+    print("Output:", args.output)#TODO: add inline arguments for
     #-m or --manual, manual analysis
     #-g or --graph, to generate a graph
 
