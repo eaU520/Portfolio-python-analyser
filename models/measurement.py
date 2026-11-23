@@ -3,7 +3,7 @@ class Measurement:
     """ A simple class to store time, current, and voltage """
 
     def __init__(self, timestamp, current, voltage):
-        self.timestamp = timestamp
+        self.timestamp = timestamp.to_pydatetime()
         self.current = current
         self.voltage = voltage
 
