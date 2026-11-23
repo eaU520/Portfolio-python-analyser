@@ -1,5 +1,5 @@
 import csv_parsing.csv_parser
-import os
+import os, sys, getopt
 from pathlib import Path
 from reports.report_generator import data_overview, print_summary_report, write_report_to_file
 #from analysis.visualisation import simple_plot 
@@ -8,7 +8,7 @@ import argparse
 
 logger_info = info_logger.initialize_logger()
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser("Python Analysis Arguments")
 parser.add_argument("-o", "--Output", help="Show output message")
 args = parser.parse_args()
 
@@ -59,8 +59,6 @@ if __name__ == '__main__':
         else:
             print("Cannot process file or no valid data found, fix error(s) and try again.")
         
-        raw_data, errors = csv_parsing.csv_parser.read_csv(path)
-    
         #TODO: Abstract below for plotting
         voltages = [raw_data[key].voltage for key in raw_data.keys()]
         currents = [raw_data[key].current for key in raw_data.keys()]
