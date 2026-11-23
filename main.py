@@ -11,18 +11,17 @@ logger_info = info_logger.initialize_logger()
 parser = argparse.ArgumentParser(description="Python Analysis Arguments")
 parser.add_argument("-o", "--output", type=str, help="Provide  path to output file")
 parser.add_argument("-i", "--input", type=str, help="Provide path to input file")
-parser.add_argument("-s", "--summary", help="Create a summary text file of the analytics")
-parser.add_argument("-p", "--pandas", help="Complete analysis using pandas")
-parser.add_argument("-n", "--numpy", help="Complete analysis using numpy")
+parser.add_argument("-s", "--summary", help="Create a summary text file of the analytics, the default is no summary")
+parser.add_argument("-p", "--pandas", help="Complete analysis using pandas, the default is manual")
+parser.add_argument("-n", "--numpy", help="Complete analysis using numpy, the default is manual")
 parser.add_argument("-m", "--manual", help="Complete analysis using manual error checking, this is the default")
-parser.add_argument("-g", "--graph", help="Create three graphs of voltage, current, and power versus time")
+parser.add_argument("-g", "--graph", help="Create three graphs of voltage, current, and power versus time, the default is no graph")
+parser.add_argument("-t", "--threshold", type=int, help="Input a voltage threshold, the default is 10V")
 args = parser.parse_args()
 
 if args.output:
     output_file = args.output
-    print("Output:", args.output)#TODO: add inline arguments for
-    #-m or --manual, manual analysis
-    #-g or --graph, to generate a graph
+    print("Output:", args.output)
 
 if __name__ == '__main__':
     try:
@@ -42,12 +41,29 @@ if __name__ == '__main__':
         
         path_header = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage_header_invalid.csv"
 
-        #output_text_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/data_summary.txt"
-
+        vs_output_text_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/data_summary.txt"
+        graphing = False
+        summarize = False
+        panda = False
+        numberPy = False
+        threshold = 10.0
+        if args.output:
+            output_file = args.output
+        if args.input:
+            path = args.input
+        if args.graph:
+            graphing = True
+        if args.summary:
+            summarize = True
+        if args.pandas:
+            panda = True
+        if args.numpy:
+            numberPy = True
+        if args.threshold:
+            threshold = args.threshold
         #Should also work on computer
         #path = str(os.system('pwd'))+"/sample-input-data/basic_current_voltage.csv"
 
-        threshold = 1.0#TODO: Make configurable
         """
         ##NUMPY
         csv_parsing.csv_parser.parse_via_numpy(path)
