@@ -1,21 +1,22 @@
 Summary Report: 
-Generated : 2026-11-20 10:05:54.343895
+Generated : 2026-11-22 22:50:23.542819
 Current Statistics
-Average Current: 5.7299999999999995
+Average Current: 7.659999999999999
 Maximum Current: 16.3
-Minimum Current: 1.9
-The following currents were above 1.0 mA: [2.3, 4.0, 4.8, 5.6, 1.9, 16.3, 3.5, 10.2, 6.0, 2.7]
+Minimum Current: 2.3
+The following currents were above 1.0 mA: [2.3, 16.3, 3.5, 10.2, 6.0]
 Power Statistics
-Average Power: 755.449
+Average Power: 964.3299999999999
 Maximum Power: 2122.2599999999998
-Minimum Power: 95.0
+Minimum Power: 345.0
 Voltage Statistics
-Average Voltage: 130.68
-Maximum Voltage: 240.0
-Minimum Voltage: 50.0
+Average Voltage: 127.58
+Maximum Voltage: 150.0
+Minimum Voltage: 117.5
 Data Quality
-Number of valid data points: 10
+Number of valid data points: 5
 Number of invalid data points: 0
-Number of missing data points: 0
-First Data point timestamp: 2026-10-31 08:00
-Last Data point timestamp: 2026-10-31 08:09
+Number of missing data points: 5
+The errors are as follows:
+Missing current. Ignoring this entire rowMissing timestamp. Ignoring this entire rowMissing voltage. Ignoring this git statentire rowMissing timestamp. Ignoring this entire rowMissing voltage. Ignoring this git statentire rowFirst Data point timestamp: 2026-10-31 08:00
+Last Data point timestamp: 2026-10-31 08:08

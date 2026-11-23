@@ -1,4 +1,7 @@
 import datetime
+import logging
+logger_info = logging.getLogger("logs.info_logger")
+
 def header_check(dict_reader):
     if dict_reader.fieldnames != ['timestamp', 'current', 'voltage']:
             raise ValueError("CSV file needs to have headers: 'timestamp', 'current', 'voltage'. Exiting program")
