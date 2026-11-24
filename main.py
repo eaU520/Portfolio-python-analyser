@@ -1,11 +1,12 @@
-import csv_parsing.csv_parser
+import data_parsing.csv_parser
 import os, sys, getopt
 from pathlib import Path
 from reports.report_generator import data_overview, print_summary_report, write_report_to_file
 #from analysis.visualisation import simple_plot 
 from logs import info_logger
+from data_parsing.import_data_config import import_json
 import argparse
-
+import json
 logger_info = info_logger.initialize_logger()
 
 parser = argparse.ArgumentParser(description="Python Analysis Arguments")
@@ -18,10 +19,6 @@ parser.add_argument("-m", "--manual", help="Complete analysis using manual error
 parser.add_argument("-g", "--graph", help="Create three graphs of voltage, current, and power versus time, the default is no graph")
 parser.add_argument("-t", "--threshold", type=int, help="Input a voltage threshold, the default is 10V")
 args = parser.parse_args()
-
-if args.output:
-    output_file = args.output
-    print("Output:", args.output)
 
 if __name__ == '__main__':
     try:
@@ -42,11 +39,12 @@ if __name__ == '__main__':
         path_header = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage_header_invalid.csv"
 
         vs_output_text_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/data_summary.txt"
-        graphing = False
-        summarize = False
-        panda = False
-        numberPy = False
-        threshold = 10.0
+        # graphing = False
+        # summarize = False
+        # panda = False
+        # numberPy = False
+        # threshold = 10.0
+
         if args.output:
             output_file = args.output
         if args.input:
@@ -70,7 +68,7 @@ if __name__ == '__main__':
         """
         logger_info.info(f"Setting threshold to {threshold}")
         ##MANUAL
-        raw_data, errors = csv_parsing.csv_parser.read_csv(path)
+        raw_data, errors = data_parsing.csv_parser.read_csv(path)
         if raw_data is not None and len(raw_data) > 0:
             data = data_overview(raw_data, threshold)
             print_summary_report(data, errors, threshold)
