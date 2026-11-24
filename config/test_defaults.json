@@ -1,0 +1,7 @@
+{
+    "graphing" : false,
+    "summarize" : false,
+    "panda" : false,
+    "numberPy" : false,
+    "threshold" : 10.0
+}
