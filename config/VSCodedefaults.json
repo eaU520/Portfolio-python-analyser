@@ -1,0 +1,9 @@
+{
+    "input" : "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage.csv",
+    "graphing" : false,
+    "summarize" : true,
+    "panda" : false,
+    "numberPy" : false,
+    "threshold" : 10.0,
+    "output" : "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/output_data_vs.csv"
+}

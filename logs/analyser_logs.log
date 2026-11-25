@@ -1,0 +1,28 @@
+Starting program
+Importing default configs
+Setting threshold to 25
+Reading CSV file
+Checking header
+Adding valid measurement
+Adding valid measurement
+Adding valid measurement
+Adding valid measurement
+Adding valid measurement
+Adding valid measurement
+Adding valid measurement
+Adding valid measurement
+Adding valid measurement
+Adding valid measurement
+Writing valid and invalid data to a new CSV
+Program completed
+2026-11-24 22:46:15,588 - logs.info_logger - Adding valid measurement
+2026-11-24 22:46:15,588 - logs.info_logger - Adding valid measurement
+2026-11-24 22:46:15,588 - logs.info_logger - Adding valid measurement
+2026-11-24 22:46:15,589 - logs.info_logger - Adding valid measurement
+2026-11-24 22:46:15,589 - logs.info_logger - Adding valid measurement
+2026-11-24 22:46:15,589 - logs.info_logger - Adding valid measurement
+2026-11-24 22:46:15,589 - logs.info_logger - Adding valid measurement
+2026-11-24 22:46:15,589 - logs.info_logger - Adding valid measurement
+2026-11-24 22:46:15,589 - logs.info_logger - Adding valid measurement
+2026-11-24 22:46:15,590 - logs.info_logger - Writing valid and invalid data to a new CSV
+2026-11-24 22:46:15,591 - logs.info_logger - Program completed

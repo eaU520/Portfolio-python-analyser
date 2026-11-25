@@ -1,11 +1,15 @@
 import analysis
+from datetime import datetime
 import logging
 logger_info = logging.getLogger("logs.info_logger")
 class Measurement:
     """ A simple class to store time, current, and voltage """
 
     def __init__(self, timestamp, current, voltage):
-        self.timestamp = timestamp.to_pydatetime()
+        try:
+            self.timestamp = datetime.strptime(timestamp)
+        except:
+            self.timestamp = timestamp
         self.current = current
         self.voltage = voltage
 

@@ -39,13 +39,16 @@ if __name__ == '__main__':
         path_header = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/sample-input-data/basic_current_voltage_header_invalid.csv"
 
         vs_output_text_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/data_summary.txt"
-        # graphing = False
-        # summarize = False
-        # panda = False
-        # numberPy = False
-        # threshold = 10.0
-        configs_default = import_json("../config/defaults.json")
-        configs_default[""]
+        vs_config = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/config/VSCodedefaults.json"
+        desktop_config = path = Path(__file__).parent.resolve() / "config/defaults.json"
+        configs_default = import_json(vs_config)
+        path = configs_default["input"]
+        numberPy = configs_default["numberPy"]
+        threshold = configs_default["threshold"]
+        panda = configs_default["panda"]
+        summary = configs_default["summarize"]
+        graphing = configs_default["graphing"]
+        output_file = configs_default["output"]
         if args.output:
             output_file = args.output
         if args.input:
@@ -96,4 +99,5 @@ if __name__ == '__main__':
         """
         logger_info.info(f"Program completed")
     except:
+        logger_info.exception("message")
         logger_info.error("Bailed somewhere")
