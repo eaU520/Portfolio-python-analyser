@@ -1,9 +1,9 @@
 {   
-    "input" : "",
+    "input" : "sample-input-data/basic_current_voltage_missing.csv",
     "graphing" : false,
     "summarize" : false,
     "panda" : false,
     "numberPy" : false,
     "threshold" : 10.0,
-    "output" : ""
+    "output" : "reports/output_data.csv"
 }

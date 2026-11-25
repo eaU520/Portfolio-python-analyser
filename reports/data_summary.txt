@@ -1,10 +1,10 @@
 Summary Report: 
-Generated : 2026-11-24 22:46:15.591321
+Generated : 2026-11-24 23:29:17.275270
 Current Statistics
 Average Current: 5.7299999999999995
 Maximum Current: 16.3
 Minimum Current: 1.9
-The following currents were above 25 mA: []
+The following currents were above 12 mA: [16.3]
 Power Statistics
 Average Power: 755.449
 Maximum Power: 2122.2599999999998

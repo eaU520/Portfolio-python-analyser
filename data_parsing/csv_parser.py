@@ -4,43 +4,44 @@ from pathlib import Path
 from data_parsing import error_handling
 import numpy as np
 import pandas
+import os, pathlib
 import logging
 logger_info = logging.getLogger("logs.info_logger")
 def read_csv(input_current_voltage_file):
     logger_info.info("Reading CSV file")
-    with open(input_current_voltage_file, newline='') as read_file:
-        reader = csv.DictReader(read_file)
-        errors = []
-        measurement_dict = {}
-        try:
-            logger_info.info("Checking header")
-            error_handling.header_check(reader)
-        except ValueError as ve:
-            print(ve)
-            return None, errors
-        for row in reader:
-            time = row['timestamp'].strip()
-            current = row['current'].strip()
-            voltage = row['voltage'].strip()
-            if not error_handling.time_check(time, errors):
-                continue
-            if not error_handling.current_check(current, errors):
-                continue
-            if not error_handling.voltage_check(voltage, errors):
-                continue
-            logger_info.info("Adding valid measurement")
-            measurement_dict[time] = Measurement(time, float(current), float(voltage))
-    #invalid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/invalid_report.csv"
-    #valid_output_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_report.csv"
-    valid_output_file = Path(__file__).parent.resolve() / "../reports/valid_report.csv"
-    invalid_output_file = "C:/Users/ebony/Documents/python-engineering-data-analyser/reports/invalid_report.csv"
-    #TODO: Make above confirgurable
-    logger_info.info("Writing valid and invalid data to a new CSV")
-    write_csv(measurement_dict, valid_output_file, errors, invalid_output_file)
-    return measurement_dict, errors
+    try:
+        if os.path.exists(input_current_voltage_file):
+            with open(input_current_voltage_file, newline='') as read_file:
+                reader = csv.DictReader(read_file)
+                errors = []
+                measurement_dict = {}
+                try:
+                    logger_info.info("Checking header")
+                    error_handling.header_check(reader)
+                except ValueError as ve:
+                    print(ve)
+                    return None, errors
+                for row in reader:
+                    time = row['timestamp'].strip()
+                    current = row['current'].strip()
+                    voltage = row['voltage'].strip()
+                    if not error_handling.time_check(time, errors):
+                        continue
+                    if not error_handling.current_check(current, errors):
+                        continue
+                    if not error_handling.voltage_check(voltage, errors):
+                        continue
+                    logger_info.info("Adding valid measurement")
+                    measurement_dict[time] = Measurement(time, float(current), float(voltage))
+            return measurement_dict, errors
+        else:
+            pass
+    except:
+        logger_info.info("Issue in file reading")
+        logger_info.exception("message")
 def write_csv(data, valid_output_file, errors, invalid_output_file):
     if len(data.keys()) > 0:
-        with open(valid_output_file, 'w', newline='') as csvfile:
+        with open(valid_output_file, 'x', newline='') as csvfile:
             valid_data_writer = csv.writer(csvfile, delimiter=',')
             valid_data_writer.writerow(['timestamp','current','voltage'])
             for timestamp,measurement in data.items():

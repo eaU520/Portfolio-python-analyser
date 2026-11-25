@@ -1,9 +1,10 @@
 import data_parsing.csv_parser
-#import os, sys, getopt
+import os
 from pathlib import Path
 from reports.report_generator import data_overview, print_summary_report, write_report_to_file
 #from analysis.visualisation import simple_plot 
 from logs import info_logger
+from data_parsing.csv_parser import write_csv
 from data_parsing.import_data_config import import_json
 import argparse
 #import json
@@ -65,6 +66,9 @@ if __name__ == '__main__':
             threshold = args.threshold
         #Should also work on computer
         #path = str(os.system('pwd'))+"/sample-input-data/basic_current_voltage.csv"
+        """
+        WRITE TO FILE?
+        """
 
         """
         ##NUMPY
@@ -76,9 +80,23 @@ if __name__ == '__main__':
         if raw_data is not None and len(raw_data) > 0:
             data = data_overview(raw_data, threshold)
             print_summary_report(data, errors, threshold)
-            write_report_to_file(data, errors, threshold, output_text_file)
+            if output_file != None or len(output_file) > 0:#TODO: This probably can be removed
+                invalid_output_file = output_file.replace("output_data", "output_invalid_data")
+                #"/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/invalid_report.csv"
+                valid_output_file = output_file
+                #"/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/valid_report.csv"
+                #valid_output_file = Path(__file__).parent.resolve() / "../reports/valid_report.csv"
+                #invalid_output_file = "C:/Users/ebony/Documents/python-engineering-data-analyser/reports/invalid_report.csv"
+                #TODO: Make above confirgurable
+                logger_info.info("Writing valid and invalid data to a new CSV")
+                logger_info.info("Checking if output files are valid")
+                write_csv(raw_data, valid_output_file, errors, invalid_output_file)
+                logger_info.info(f"Data processed and stored, valid data in {valid_output_file},and invalid data in  {invalid_output_file}")
+            else:
+                logger_info.info("Data parsed, no output file")
+            write_report_to_file(data, errors, threshold, output_text_file)#TODO: Check output report
         else:
-            print("Cannot process file or no valid data found, fix error(s) and try again.")
+            print("No valid data found, fix error(s) and try again.")
         
         #TODO: Abstract below for plotting
         voltages = [raw_data[key].voltage for key in raw_data.keys()]
