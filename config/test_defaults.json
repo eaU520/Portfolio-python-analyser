@@ -1,7 +1,9 @@
 {
+    "input" : "",
     "graphing" : false,
     "summarize" : false,
     "panda" : false,
     "numberPy" : false,
-    "threshold" : 10.0
+    "threshold" : 10.0,
+    "output" : ""
 }

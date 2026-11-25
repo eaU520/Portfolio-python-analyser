@@ -42,7 +42,7 @@ if __name__ == '__main__':
         vs_output_text_file = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/reports/data_summary.txt"
         vs_config = "/data/user/0/com.vscodroid/files/home/projects/Portfolio-python-analyser/config/VSCodedefaults.json"
         desktop_config = path = Path(__file__).parent.resolve() / "config/defaults.json"
-        configs_default = import_json(vs_config)
+        configs_default = import_json(desktop_config)
         path = configs_default["input"]
         numberPy = configs_default["numberPy"]
         threshold = configs_default["threshold"]
