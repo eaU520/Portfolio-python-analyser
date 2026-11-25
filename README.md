@@ -29,10 +29,19 @@ See flags below or access documentation via help flag
 python main.py --help
 python main.py -h
 ```
-#TODO: Update and add all flags
 FLAGS:
 ```
--i, --input
+  -h, --help            show this help message and exit
+  -o, --output OUTPUT   Provide path to output file
+  -i, --input INPUT     Provide path to input file
+  -s, --summary SUMMARY
+                        Create a summary text file of the analytics, the default is no summary
+  -p, --pandas PANDAS   Complete analysis using pandas, the default is manual
+  -n, --numpy NUMPY     Complete analysis using numpy, the default is manual
+  -m, --manual MANUAL   Complete analysis using manual error checking, this is the default
+  -g, --graph GRAPH     Create three graphs of voltage, current, and power versus time, the default is no graph
+  -t, --threshold THRESHOLD
+                        Input a voltage threshold, the default is 10V
 
 ```
 #TODO: Add video tutorial/demo
