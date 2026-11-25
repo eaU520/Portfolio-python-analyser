@@ -24,6 +24,20 @@ In a terminal/command line in the top-level directory
 ```bash
 python main.py
 ```
+See flags below or access documentation via help flag
+```bash
+python main.py --help
+python main.py -h
+```
+#TODO: Update and add all flags
+FLAGS:
+```
+-i, --input
+
+```
+#TODO: Add video tutorial/demo
+#TODO: Add more extensive help documentation
+
 Running tests: In a terminal/command line in the top-level directory
 
 ```bash
@@ -38,11 +52,10 @@ python -m pytest -v
 - [X] Calcuate the power for each voltage and current.
 - [X] Calculate the average power.
 - [X] Determine and display the highest and lowest input readings.
-- [ ] Allow for custom file input
-- [ ] Display a graph of the readings and power in three separate graphs.
+- [X] Allow for custom file input
+- [X] Display a graph of the readings and power in three separate graphs.
 - [X] Generate and display a report
-- [-] Provide the option to save a report or open an existing report.
-    Save is happening now
+- [X] Provide the option to save a report or open an existing report.
 - [X] Add test suite.
 - [X] Add error handling
 - [X] Improve Documentation.
@@ -51,6 +64,10 @@ python -m pytest -v
 - Write basic functionality for initial practice of data analysis.
 - Demonstrate good coding documentation practices.
 - Complete data analyser and generate clear reports
+- Tkinter GUI, for easier use
+- Connection to database for extensibility
+- Robust testing
+
 
 ## Requirements
 - Python 3
