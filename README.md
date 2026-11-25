@@ -59,6 +59,8 @@ python -m pytest -v
 - [X] Add test suite.
 - [X] Add error handling
 - [X] Improve Documentation.
+- [ ] TKinter GUI
+- [ ] Database integration
 
 ## Goals
 - Write basic functionality for initial practice of data analysis.
@@ -74,8 +76,8 @@ python -m pytest -v
 
 ## Sample Data
 1. test_data.csv: Random numbers were used for CSV reading practice
-2. basic_current_voltage.csv:
-3. basic_current_voltage_missing.csv:
+2. basic_current_voltage.csv: Correctly formatted data
+3. basic_current_voltage_missing.csv: Correct header but a few missing current or voltage values
 4. basic_current_voltage_errors.csv:
 
 ## Author
