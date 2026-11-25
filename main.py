@@ -1,12 +1,12 @@
 import data_parsing.csv_parser
-import os, sys, getopt
+#import os, sys, getopt
 from pathlib import Path
 from reports.report_generator import data_overview, print_summary_report, write_report_to_file
 #from analysis.visualisation import simple_plot 
 from logs import info_logger
 from data_parsing.import_data_config import import_json
 import argparse
-import json
+#import json
 logger_info = info_logger.initialize_logger()
 
 parser = argparse.ArgumentParser(description="Python Analysis Arguments")
@@ -44,7 +44,8 @@ if __name__ == '__main__':
         # panda = False
         # numberPy = False
         # threshold = 10.0
-
+        configs_default = import_json("../config/defaults.json")
+        configs_default[""]
         if args.output:
             output_file = args.output
         if args.input:

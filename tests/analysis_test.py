@@ -1,4 +1,6 @@
 from analysis.analyser import power_calculation, average_calculation, maximum_calculation, minimum_calculation, above_threshold
+from data_parsing.import_data_config import import_json
+configs_default = import_json("../config/defaults.json")
 def test_power_calculation():
     assert power_calculation(3, 5) == 15
 

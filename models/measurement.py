@@ -1,4 +1,6 @@
 import analysis
+import logging
+logger_info = logging.getLogger("logs.info_logger")
 class Measurement:
     """ A simple class to store time, current, and voltage """
 

@@ -1,4 +1,6 @@
 #Not available in VSCodroid
+import logging
+logger_info = logging.getLogger("logs.info_logger")
 """import matplotlib.pyplot as plotter
 def simple_plot(x,x_label, y, y_label, title):
     plotter.plot(x,y)

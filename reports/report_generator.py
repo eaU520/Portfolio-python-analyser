@@ -1,5 +1,7 @@
 from datetime import datetime
 from analysis.analyser import maximum_calculation, average_calculation, above_threshold, minimum_calculation, power_calculation
+import logging
+logger_info = logging.getLogger("logs.info_logger")
 def data_overview(data, threshold):
     num_measures = len(data.keys())
     max_current = max(data[key].current for key in data.keys()) #TODO: Only search once

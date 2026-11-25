@@ -1,7 +1,7 @@
 import csv
 from models.measurement import Measurement
 from pathlib import Path
-from csv_parsing import error_handling
+from data_parsing import error_handling
 import numpy as np
 import pandas
 import logging
