@@ -41,7 +41,7 @@ def read_csv(input_current_voltage_file):
         logger_info.exception("message")
 def write_csv(data, valid_output_file, errors, invalid_output_file):
     if len(data.keys()) > 0:
-        with open(valid_output_file, 'x', newline='') as csvfile:
+        with open(valid_output_file, 'w', newline='') as csvfile:
             valid_data_writer = csv.writer(csvfile, delimiter=',')
             valid_data_writer.writerow(['timestamp','current','voltage'])
             for timestamp,measurement in data.items():
