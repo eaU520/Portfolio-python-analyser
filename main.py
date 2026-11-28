@@ -55,7 +55,7 @@ if __name__ == '__main__':
                 logger_info.info(f"{args.output} already exists and will be overwritten")
                 output_file = args.output
             else:
-              logger_info(f"{args.output} is not a file that exists, it will be created")  
+              logger_info.info(f"{args.output} is not a file that exists, it will be created")  
         if args.input:
             path = args.input
             logger_info.info(f"{path} will be the input files analysed")
