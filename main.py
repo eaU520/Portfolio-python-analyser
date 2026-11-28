@@ -62,7 +62,7 @@ if __name__ == '__main__':
         if args.graph:
             graphing = True
             logger_info.info("Graphs will be created for current, voltage, and power vs. time")
-        summary_output_file = output_text_file.replace(".txt", "data_summary.txt")
+        summary_output_file = str(output_text_file).replace(".txt", "data_summary.txt")
         if args.summary:
             summarize = True
             logger_info.info("The results will be summarized")
