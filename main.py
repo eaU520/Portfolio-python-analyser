@@ -62,7 +62,7 @@ if __name__ == '__main__':
         if args.graph:
             graphing = True
             logger_info.info("Graphs will be created for current, voltage, and power vs. time")
-        summary_output_file = output_text_file.replace("output_data", "data_summary")
+        summary_output_file = output_text_file.replace(".txt", "data_summary.txt")
         if args.summary:
             summarize = True
             logger_info.info("The results will be summarized")
@@ -119,7 +119,7 @@ if __name__ == '__main__':
         if panda:
             data_parsing.csv_parser.parse_via_pandas(path,invalid_output_file, valid_output_file)
         if summarize:
-            write_report_to_file(data, errors, threshold, output_text_file)
+            write_report_to_file(data, errors, threshold, summary_output_file)
         logger_info.info(f"Program completed")
     except:
         logger_info.exception("message")
