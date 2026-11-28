@@ -100,7 +100,6 @@ if __name__ == '__main__':
                 logger_info.info(f"Data processed and stored, valid data in {valid_output_file},and invalid data in  {invalid_output_file}")
             else:
                 logger_info.info("Data parsed, no output file")
-            write_report_to_file(data, errors, threshold, output_text_file)#TODO: Check output report
         else:
             print("No valid data found, fix error(s) and try again.")
         
@@ -118,7 +117,8 @@ if __name__ == '__main__':
         ##PANDAS
         if panda:
             data_parsing.csv_parser.parse_via_pandas(path,invalid_output_file, valid_output_file)
-
+        if summarize:
+            write_report_to_file(data, errors, threshold, output_text_file)
         logger_info.info(f"Program completed")
     except:
         logger_info.exception("message")

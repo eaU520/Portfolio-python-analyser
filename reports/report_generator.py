@@ -22,7 +22,6 @@ def data_overview(data, threshold):
     return power_dict, avg_current, max_current, min_current, avg_power, max_power, min_power, avg_voltage, max_voltage, min_voltage, first_time, last_time, current_threshold
 def print_summary_report(data, errors, threshold):
     power_dict, avg_current, max_current, min_current, avg_power, max_power, min_power, avg_voltage, max_voltage, min_voltage, first_time, last_time, current_threshold = data
-    print(data)
     print("Summary Report: ")
     print(f"Generated : {str(datetime.now())}")
     print("Current Statistics")
