@@ -77,7 +77,7 @@ if __name__ == '__main__':
         
         ##NUMPY
         if numberPy:
-            csv_parsing.csv_parser.parse_via_numpy(path)
+            data_parsing.csv_parser.parse_via_numpy(path)
         
         logger_info.info(f"Setting threshold to {threshold} for alerts")
 
@@ -116,8 +116,8 @@ if __name__ == '__main__':
         """    
 
         ##PANDAS
-
-        csv_parsing.csv_parser.parse_via_pandas(path,invalid_output_file, valid_output_file)
+        if panda:
+            data_parsing.csv_parser.parse_via_pandas(path,invalid_output_file, valid_output_file)
 
         logger_info.info(f"Program completed")
     except:

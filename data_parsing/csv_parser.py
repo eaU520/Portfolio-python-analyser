@@ -19,7 +19,6 @@ def read_csv(input_current_voltage_file):
                     logger_info.info("Checking header")
                     error_handling.header_check(reader)
                 except ValueError as ve:
-                    print(ve)
                     return None, errors
                 for row in reader:
                     time = row['timestamp'].strip()
@@ -49,8 +48,6 @@ def write_csv(data, valid_output_file, errors, invalid_output_file):
     elif len(errors) > 0:
         with open(invalid_output_file, 'w', newline='') as csv_error_file:
             invalid_data_writer = csv.writer(csv_error_file, delimiter=',')
-            print(len(errors))
-            print(f"Errors {errors}")
             for i in range(0,len(errors)-1):
                 invalid_data_writer.writerow([errors[i], errors[i+1]])
 def parse_via_numpy(input_file):
@@ -59,7 +56,7 @@ def parse_via_numpy(input_file):
     power = np.multiply(input_data[:,1], input_data[:,2])
     #print("NumPy power", power)
     max_power, min_power, avg_power = np.nanmax(power), np.nanmin(power), np.average(power)
-    print("NumPy Results",max_power, min_power, avg_power)
+    #print("NumPy Results",max_power, min_power, avg_power)
 
 def parse_via_pandas(input_file, invalid_output_file, valid_output_file):
     df = pandas.read_csv(input_file)
@@ -68,7 +65,7 @@ def parse_via_pandas(input_file, invalid_output_file, valid_output_file):
     if headers != ['timestamp', 'current', 'voltage']:
         print(f"Wrong headers must be {headers}")
         return
-    print(valid_data)
+    #print(valid_data)
     
     average_current, max_current, min_current = pandas.to_numeric(valid_data["current"]).mean(), pandas.to_numeric(valid_data["current"]).max(), pandas.to_numeric(valid_data["current"]).min()
     
